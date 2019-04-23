@@ -14,6 +14,7 @@ import com.example.geeknews.view.AllView;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class WechatFragment extends BaseFragment<AllView, WechatPresenter> imple
     @Override
     protected void initView() {
         mSmart.setRefreshHeader(new MaterialHeader(BaseApplication.getInstance()));
-        mSmart.setEnableLoadmore(false);
+        mSmart.setRefreshFooter(new BallPulseFooter(BaseApplication.getInstance()));
         mSmart.setOnRefreshLoadmoreListener(this);
         mRlv.setLayoutManager(new LinearLayoutManager(BaseApplication.getInstance()));
         mAdapter = new WechatAdapter(new ArrayList<WechatListBean.NewslistBean>());

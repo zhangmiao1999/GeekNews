@@ -23,7 +23,7 @@ public interface WechatApiService {
      * @param map
      * @return
      */
-    @GET("wxnew/?key=52b7ec3471ac3bec6846577e79f20e4c&num=10&page=1")
+    @GET("wxnew/")
     Observable<WechatListBean> getWechatList(@QueryMap Map<String,Object> map);
 
 

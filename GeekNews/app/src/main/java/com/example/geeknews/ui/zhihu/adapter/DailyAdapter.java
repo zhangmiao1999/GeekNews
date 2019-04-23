@@ -159,7 +159,15 @@ public class DailyAdapter extends RecyclerView.Adapter {
                 RequestOptions options = new RequestOptions().placeholder(R.mipmap.ic_launcher);
                 Glide.with(mContext).load(bean.getImages().get(0)).apply(options).into(contentViewHolder.mImg);
             }
+            final int finalRealPosition = realPosition;
+            contentViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickListener.onItemClick(finalRealPosition);
+                }
+            });
         }
+
     }
 
     @Override

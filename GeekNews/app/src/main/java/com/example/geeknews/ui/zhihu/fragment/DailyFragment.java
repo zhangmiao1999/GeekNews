@@ -14,6 +14,7 @@ import com.example.geeknews.base.BaseFragment;
 import com.example.geeknews.model.bean.NewsListBean;
 import com.example.geeknews.presenter.zhihu.DailyPresenter;
 import com.example.geeknews.ui.zhihu.activity.CalendarActivity;
+import com.example.geeknews.ui.zhihu.activity.DailyDetailsActivity;
 import com.example.geeknews.ui.zhihu.adapter.DailyAdapter;
 import com.example.geeknews.view.DailyView;
 
@@ -71,6 +72,15 @@ public class DailyFragment extends BaseFragment<DailyView, DailyPresenter> imple
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mAdapter.setOnItemClickListener(new DailyAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(BaseApplication.getInstance(), DailyDetailsActivity.class);
+                intent.putExtra("id",mAdapter.mNewsList.get(position).getId());
                 startActivity(intent);
             }
         });

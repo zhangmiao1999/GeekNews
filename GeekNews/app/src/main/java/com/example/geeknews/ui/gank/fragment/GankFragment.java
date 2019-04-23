@@ -29,6 +29,7 @@ public class GankFragment extends BaseFragment<GankV, GankPresenter> implements 
     private ArrayList<Fragment> mFragments;
     private VpAdapter mAdapter;
 
+
     @Override
     protected GankPresenter initPresenter() {
         return new GankPresenter();

@@ -1,5 +1,6 @@
 package com.example.geeknews.model.net;
 
+import com.example.geeknews.model.bean.DailyDetailsBean;
 import com.example.geeknews.model.bean.NewsListBean;
 import com.example.geeknews.model.bean.HotListBean;
 import com.example.geeknews.model.bean.SectionsListBean;
@@ -23,6 +24,9 @@ public interface ZhihuApiService {
      */
     @GET("news/latest")
     Observable<NewsListBean> getDailyList();
+
+    @GET("news/{news_id}")
+    Observable<DailyDetailsBean> getDetails(@Path("news_id") int id);
 
     @GET("news/before/{date}")
     Observable<NewsListBean> getDailyBeforList(@Path("date") String date);
